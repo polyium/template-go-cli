@@ -325,9 +325,9 @@ release:
 # ------------------------------------------------------------------------------------
 
 patch: override type = patch
-patch release &: commit build release
+patch release &: commit build release brew-install
 
 minor: override type = minor
-minor release &: commit build release
+minor release &: commit build release brew-install
 
 major: override type = major
