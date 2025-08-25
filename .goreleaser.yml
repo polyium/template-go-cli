@@ -40,33 +40,15 @@ homebrew_casks:
 
         binary: polyforge
 
-        # This information will be used to build the URL section of your Cask.
-        #
-        # You can set the template, as well as additional parameters.
-        # These parameters can be used to provide extra headers, cookies, or other
-        # download requirements for your application.
-        # See https://docs.brew.sh/Cask-Cookbook#additional-url-parameters for more details.
-        #
-        # All fields are optional.
         url:
             verified: github.com/polyium/polyforge
-
-            # Download strategy or format specification
-            # See official Cask Cookbook for allowed values.
-            # Templates: allowed.
             using: ":homebrew_curl"
-
-            # HTTP cookies to send with the download request
-            # Templates: allowed.
             cookies:
                 license: "accept-backup"
 
-            # Additional HTTP headers
-            # Templates: allowed.
             headers:
                 - "X-Version: {{ .Version }}"
 
-        # Optional: if your app/binary isn't signed and notarized, you'll need this:
         hooks:
             post:
                 install: |
