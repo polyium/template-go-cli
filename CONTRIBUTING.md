@@ -71,9 +71,8 @@ For any other issues, consult the [official](https://pkg.go.dev/about#adding-a-p
 
 ## Documentation
 
-Tool `godoc` is required to render the documentation, which includes examples.
-
-- See [`doc.go`](./doc.go) for code-specific package documentation.
+Tool `godoc` is required to render the documentation; go's documentation rendering tool includes runnable examples if the package
+has written them.
 
 Installation Steps:
 
