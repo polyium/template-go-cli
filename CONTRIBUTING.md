@@ -3,6 +3,12 @@
 > [!NOTE]
 > **The following documentation is intended for project maintainers & developers, and those looking to contribute to the project**.
 
+## Commit Messages
+
+```bash
+git config --local commit.template ".gitmessage"
+```
+
 ## Initial Setup
 
 Install pre-requisites, ci tools, and local development hooks:
