@@ -67,12 +67,12 @@ homebrew_casks:
                 - "X-Version: {{ .Version }}"
 
         # Optional: if your app/binary isn't signed and notarized, you'll need this:
-        # hooks:
-        #     post:
-        #         install: |
-        #             if OS.mac?
-        #               system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/polyforge"]
-        #             end
+        hooks:
+            post:
+                install: |
+                    if OS.mac?
+                      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/polyforge"]
+                    end
 
         commit_author:
             name: Jacob B. Sanders
