@@ -79,7 +79,7 @@ homebrew_casks:
             name: Jacob B. Sanders
             email: 60639231+Segmentational@users.noreply.github.com
 
-        commit_msg_template: "[Chore]: Brew Formula Bump ({{ .ProjectName }}), {{ .Tag }}"
+        commit_msg_template: "bump(version): {{ .Tag }}"
 
         homepage: "https://github.com/polyium/polyforge"
 

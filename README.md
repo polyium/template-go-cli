@@ -1,6 +1,7 @@
 # `polyforge`
 
-...
+> [!CAUTION]
+> The following repository is in very early stages of development and is not ready for use. *The **Caution** banner will be removed when generally available*.
 
 ## Overview
 
