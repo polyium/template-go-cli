@@ -283,7 +283,7 @@ bump: git-check-tree test
 commit: bump
 	@echo "$(blue-bold)Tag-Release$(reset) ($(type-title)): $(yellow-bold)$(package)$(reset) - $(white-bold)$(version)$(reset)" && echo
 	@git add VERSION
-	@git commit --message "Chore ($(type-title)) - Tag Release: $(version)"
+	@git commit --message "chore($(type-title)): tag release - $(version)"
 	@git push --set-upstream origin main
 	@git tag "v$(version)"
 	@git push origin "v$(version)"
