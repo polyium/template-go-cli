@@ -61,7 +61,8 @@ func main() {
 
 			// Setup slog-specific logging.
 			writer := cmd.ErrOrStderr()
-			options := &slog.HandlerOptions{AddSource: src, Level: lvl.Level(), ReplaceAttr: logging.Replacements}
+			addsource := src && sources == "include"
+			options := &slog.HandlerOptions{AddSource: addsource, Level: lvl.Level(), ReplaceAttr: logging.Replacements}
 			handler := slog.NewTextHandler(writer, options)
 			logger := slog.New(handler)
 
@@ -96,10 +97,4 @@ func main() {
 	root.PersistentFlags().VarP(&out, "output", "o", "command output format; not applicable to all commands")
 
 	commands.Execute(root)
-}
-
-func init() {
-	if sources != "include" {
-		src = false
-	}
 }

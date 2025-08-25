@@ -27,7 +27,7 @@ brew update && brew upgrade polyforge
 
 ```bash
 brew update
-brew unlink polyforge
+brew uninstall --cask polyforge
 brew install polyforge
 ```
 
