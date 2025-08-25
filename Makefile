@@ -167,7 +167,7 @@ brew-uninstall:
 .PHONY: brew-install
 brew-install: brew-uninstall
 	@echo "$(blue-bold)Installing Package$(reset): ($(name))" && echo
-	@brew tap $(homebrew-tap) $(homebrew-tap-repository) --force-auto-update --force
+	@brew tap $(homebrew-tap) $(homebrew-tap-repository) --force
 	@brew update
 	@brew install $(name)
 
