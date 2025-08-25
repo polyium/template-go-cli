@@ -135,7 +135,7 @@ distribute = mkdir -p distribution && mv *.tar.gz distribution
 # Default
 # ------------------------------------------------------------------------------------
 
-all: pre-requisites test-release $(type)-release
+all: pre-requisites test-release $(type)
 
 # ====================================================================================
 # Pre-Requisites
