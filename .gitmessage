@@ -1,0 +1,79 @@
+type(scope): description
+
+# <Type>(<Optional-Scope>): <Description>
+#
+# Body - Present Tense (e.g. "change", not "changed" || "changes")
+#
+# Footer - Issue Reference, Breaking Change, Additional Contributors, Commit SHA(s)
+
+# Type Reference
+#
+# - build:      Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+# - ci:         Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+# - docs:       Documentation only changes
+# - feat:       A new feature
+# - fix:        A bug fix
+# - perf:       A code change that improves performance
+# - refactor:   A code change that neither fixes a bug nor adds a feature
+# - style:      Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+# - test:       Adding missing tests or correcting existing tests
+# - bump:       Version bump a package, module or upgrade a dependency
+# - chore:      Configuration, scripts, formatting, clean-up, other - non-production code change(s)
+
+# Scope Discussion
+#
+# Scope should provide context for the change. Examples include the part of the code
+# base that was updated, a system or environment, a specific file or module, and
+# in private settings, perhaps a ticket number or other internal identifier.
+
+# Body
+#
+# Additional information or discussion about the commit.
+
+#
+# Examples
+#
+
+# Example - Scope with Attention (!)
+#
+# feat(api)!: send an email to the customer when a product is shipped
+
+# Example - Description with Breaking Change
+#
+# feat: allow provided config object to extend other configs
+#
+# BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+
+# Example - Multi-Paragraph and Extended Footer
+#
+# fix: prevent racing of requests
+#
+# Introduce a request id and a reference to latest request. Dismiss
+# incoming responses other than from latest request.
+#
+# Remove timeouts which were used to mitigate the racing issue but are
+# obsolete now.
+#
+# Reviewed-by: Z
+# Refs: #123
+
+# Example - Revert Commit
+#
+# revert: justification for revert
+#
+# Refs: 676104e, a215868
+
+# References
+#
+# - https://www.conventionalcommits.org/en/v1.0.0/
+# - https://help.github.com/articles/closing-issues-via-commit-messages/
+# - https://www.conventionalcommits.org/en/v1.0.0/#what-do-i-do-if-i-accidentally-use-the-wrong-commit-type
+# - https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716?permalink_comment_id=3460311#gistcomment-3460311
+# - https://git-scm.com/docs/git-commit
+# - https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
+
+# Configuration
+#
+# $ git config --global core.editor nano
+# $ git config --global commit.message .gitmessage
+# $ git config --global commit.template .gitmessage

@@ -1,0 +1,81 @@
+version: 2
+
+project_name: polyforge
+
+env_files:
+    github_token: ~/.config/goreleaser/github_token
+
+before:
+    hooks:
+        - go vet
+        - go mod tidy
+        - go mod vendor
+        - go generate ./...
+
+builds:
+    -   env:
+            - CGO_ENABLED=0
+        ldflags:
+            - "-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}"
+        goos:
+            - linux
+            - windows
+            - darwin
+
+archives:
+    -   format: tar.gz
+        name_template: >-
+            {{ .ProjectName }}-
+            {{- .Os }}-
+            {{- if eq .Arch "amd64" }}x86-64
+            {{- else if eq .Arch "386" }}i386
+            {{- else }}{{ .Arch }}{{ end }}
+            {{- if .Arm }}v{{ .Arm }}{{ end }}
+        format_overrides:
+            -   goos: windows
+                format: zip
+
+brews:
+    -   name: polyforge
+
+        directory: Formula
+
+        commit_author:
+            name: Jacob B. Sanders
+            email: 60639231+Segmentational@users.noreply.github.com
+
+        commit_msg_template: "[Chore]: Brew Formula Bump ({{ .ProjectName }}), {{ .Tag }}"
+
+        # caveats: |
+        #     Internal Usage Only
+
+        homepage: "https://github.com/polyium/polyforge"
+
+        description: "CLI"
+
+        license: "MIT"
+
+        skip_upload: false
+
+        download_strategy: CurlDownloadStrategy
+
+        dependencies:
+            -   name: git
+                os: mac
+            -   name: zsh
+                type: optional
+            -   name: fish
+                type: optional
+            -   name: bash
+                type: optional
+
+        conflicts:
+            - polyforge
+
+        repository:
+            branch: main
+            owner: polyium
+            name: homebrew-taps
+
+changelog:
+    use: github-native
