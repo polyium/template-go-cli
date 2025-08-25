@@ -13,16 +13,16 @@ ifdef CI_PROJECT_NAME
     override name = $(CI_PROJECT_NAME)
 endif
 
-homebrew-tap := polyium/polyforge
+homebrew-tap := polyium/homebrew-taps
 ifdef HOMEBREW_TAP
     override homebrew-tap = $(HOMEBREW_TAP)
 endif
 
 # homebrew-tap-repository := gitlab.com:example-organization/group-1/group-2/homebrew-taps.git
-homebrew-tap-repository := https://github.com/polyium/homebrew-taps
-ifdef HOMEBREW_TAP_REPOSITORY
-    override homebrew-tap-repository = $(HOMEBREW_TAP_REPOSITORY)
-endif
+# homebrew-tap-repository := https://github.com/polyium/homebrew-taps
+# ifdef HOMEBREW_TAP_REPOSITORY
+#     override homebrew-tap-repository = $(HOMEBREW_TAP_REPOSITORY)
+# endif
 
 type = patch
 ifdef RELEASE
@@ -160,14 +160,15 @@ pre-requisites:
 .PHONY: brew-uninstall
 brew-uninstall:
 	@echo "$(blue-bold)Uninstalling Package$(reset): ($(name))" && echo
-	@rm -rf /opt/homebrew/etc/gitconfig
 	@brew uninstall $(name) --force || true
 	@brew untap $(homebrew-tap) --force || true
+	@brew update || true
 
 .PHONY: brew-install
 brew-install: brew-uninstall
 	@echo "$(blue-bold)Installing Package$(reset): ($(name))" && echo
-	@brew tap $(homebrew-tap) $(homebrew-tap-repository) --force
+	# @brew tap $(homebrew-tap) $(homebrew-tap-repository) --force
+	# @brew tap $(homebrew-tap)
 	@brew update
 	@brew install $(name)
 
@@ -325,9 +326,9 @@ release:
 # ------------------------------------------------------------------------------------
 
 patch: override type = patch
-patch release &: commit build release brew-install
+patch release &: commit build release
 
 minor: override type = minor
-minor release &: commit build release brew-install
+minor release &: commit build release
 
 major: override type = major
