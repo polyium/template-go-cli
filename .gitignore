@@ -5,6 +5,9 @@ dist
 build
 distribution
 
+*.tar.gz
+*-windows-*.zip
+
 # IDE
 
 .idea
