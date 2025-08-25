@@ -135,7 +135,7 @@ distribute = mkdir -p distribution && mv *.tar.gz distribution
 # Default
 # ------------------------------------------------------------------------------------
 
-all: pre-requisites test-release $(type)
+all: $(type)
 
 # ====================================================================================
 # Pre-Requisites
@@ -275,7 +275,7 @@ git-check-tree:
 
 .PHONY: bump
 bump: git-check-tree test
-	@echo "$(green-bold)Bumping Version: \"$(yellow-bold)$(package)$(reset)\" - $(white-bold)$(version)$(reset)" && echo
+	@echo "$(green-bold)Bumping Version$(reset): \"$(yellow-bold)$(package)$(reset)\" - $(white-bold)$(version)$(reset)" && echo
 	@echo "$($(type)-upgrade)" > VERSION
 	@$(call step,"Updated Version Lock") && echo
 
@@ -297,7 +297,7 @@ clean:
 	rm *.tar.gz && rm *.zip
 
 .PHONY: tidy
-tidy:
+tidy: imports
 	@go mod tidy && go mod vendor
 
 .PHONY: imports
@@ -316,14 +316,18 @@ escape-hatch:
 	@cd "$(git rev-parse --show-toplevel)"
 	@rm -rf ./.upstreams
 
+.PHONY: release
+release:
+	@goreleaser release --clean
+
 # ====================================================================================
 # Release
 # ------------------------------------------------------------------------------------
 
 patch: override type = patch
-patch release &: commit build
+patch release &: commit build release
 
 minor: override type = minor
-minor release &: commit build
+minor release &: commit build release
 
 major: override type = major
