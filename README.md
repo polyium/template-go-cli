@@ -13,7 +13,7 @@ The following project is a template for commandline applications. Additionally, 
 
 <!-- {{ $.content.start }} -->
 
-# {{ $.content["title"] }}
+# {{ $.content.title }}
 
 > [!CAUTION]
 > The following repository is in very early stages of development and is not ready for use. *The **Caution** banner will be removed when generally available*.
@@ -45,7 +45,7 @@ brew install {{ default $.content["executable"] "template-go-cli" }}
 ## Usage
 
 ```bash
-template-go-cli --help
+{{ default $.content["executable"] "template-go-cli" }} --help
 ```
 
 ## Contributions
