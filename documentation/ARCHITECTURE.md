@@ -3,19 +3,19 @@
 ## Overview
 
 The following document ranges anywhere from high-level to code-implementation-level of detail, and is intended
-to serve as an outline for `polyforge`'s specification.
+to serve as an outline for `template-go-cli`'s specification.
 
 ### Summary
 
-`polyforge` is a `go` CLI templating utility for producing and consuming repository templates. A repository is
-considered *"polyforge-aware"* if it contains a root-level `.poly-template` descriptor. `polyforge` renders both file
+`template-go-cli` is a `go` CLI templating utility for producing and consuming repository templates. A repository is
+considered *"template-go-cli-aware"* if it contains a root-level `.poly-template` descriptor. `template-go-cli` renders both file
 names and
 file contents using Go’s [`text/template` engine](https://pkg.go.dev/text/template) (with configurable
 delimiters/prefix).
 
 - Language: Go (latest stable).
 - Distribution: Homebrew (macOS), standalone binaries for Linux/Windows.
-- Name: `polyforge`.
+- Name: `template-go-cli`.
 
 ### Key Concepts
 
@@ -53,7 +53,7 @@ template. Inheritance supports additive/override merges for:
 
 #### Official Template Registry
 
-`polyforge` became a tool out of necessity; as such, Polyium provides an official "registry" of curated templates. The
+`template-go-cli` became a tool out of necessity; as such, Polyium provides an official "registry" of curated templates. The
 CLI can:
 
 - List and search official templates
@@ -67,7 +67,7 @@ CLI can:
 ```bash
 brew tap polyium/tap
 
-brew install polyium/tap/polyforge
+brew install polyium/tap/template-go-cli
 ```
 
 #### Supported OS
@@ -79,13 +79,13 @@ brew install polyium/tap/polyforge
 #### Configuration Precedence
 
 1. CLI flags
-2. Environment (`POLYFORGE_*`)[^4]
+2. Environment (`template-go-cli_*`)[^4]
 3. `.poly-template` in the active directory (or targeted path)
-4. User configuration file (`~/.config/polyforge/.polyrc[.json]`)[^5]
+4. User configuration file (`~/.config/template-go-cli/.polyrc[.json]`)[^5]
 
 ### JSON Schema
 
-`polyforge` produces and validates JSON Schemas for `.poly-template`. Can be added to IDEs including
+`template-go-cli` produces and validates JSON Schemas for `.poly-template`. Can be added to IDEs including
 any JetBrains product and VSCode.
 
 ### Safety, Idempotency, and Git
@@ -98,7 +98,7 @@ any JetBrains product and VSCode.
 
 ### Extensibility
 
-- Hooks: pre and post hooks run in a controlled sandbox (env has resolved variables; POLYFORGE_* exposed).
+- Hooks: pre and post hooks run in a controlled sandbox (env has resolved variables; template-go-cli_* exposed).
 - Helpers/Funcs: a stable, versioned set of extra template funcs (e.g., slug, pascal, kebab, snake, now, trim,
   default).
   - Implementation: small, internal library to avoid heavy dependencies.
@@ -123,7 +123,7 @@ any JetBrains product and VSCode.
 
 ### Testing & CI
 
-- `polyforge` test:
+- `template-go-cli` test:
   - Executes a dry-run render with sample vars, validates against golden outputs.
   - Verifies hooks exit codes and logs.
   - Provide a GitHub Action:
@@ -136,5 +136,5 @@ any JetBrains product and VSCode.
 [^1]: Planned support for `.poly-template` subdirectory overrides and related scoping behaviors.
 [^2]: Planned support for arbitrary file-content rendering without `.tmpl` file extensions.
 [^3]: Planned support for producer-template versioning via `git` tagging.
-[^4]: Planned support for runtime configuration options via `POLYFORGE_` environment variables.
+[^4]: Planned support for runtime configuration options via `template-go-cli_` environment variables.
 [^5]: Planned support for `.polyrc[.json]` user configuration.

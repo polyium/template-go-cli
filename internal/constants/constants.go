@@ -1,7 +1,7 @@
 package constants
 
-// Name represents the constant string value "polyforge" -- the cli executable.
+// Name represents the constant string value "template-go-cli" -- the cli executable.
 const (
 	//
-	Name = "polyforge"
+	Name = "template-go-cli"
 )

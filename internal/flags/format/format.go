@@ -2,7 +2,7 @@ package format
 
 import (
 	"context"
-	"polyforge/internal/types/output"
+	"template-go-cli/internal/types/output"
 )
 
 // keyer is a custom type for context keys to prevent key collisions.

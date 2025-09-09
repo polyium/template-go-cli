@@ -4,13 +4,13 @@ import (
 	_ "embed"
 	"fmt"
 	"log/slog"
-	"polyforge/internal/constants"
-	"polyforge/internal/flags/format"
+	"template-go-cli/internal/constants"
+	"template-go-cli/internal/flags/format"
 
-	"polyforge/internal/commands"
-	"polyforge/internal/logging"
-	"polyforge/internal/types/level"
-	"polyforge/internal/types/output"
+	"template-go-cli/internal/commands"
+	"template-go-cli/internal/logging"
+	"template-go-cli/internal/types/level"
+	"template-go-cli/internal/types/output"
 
 	"github.com/spf13/cobra"
 )

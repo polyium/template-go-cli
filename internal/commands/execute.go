@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"polyforge/internal/commands/example"
+	"template-go-cli/internal/commands/example"
 
 	"github.com/spf13/cobra"
 )

@@ -1,4 +1,4 @@
-# `polyforge`
+# `template-go-cli`
 
 > [!CAUTION]
 > The following repository is in very early stages of development and is not ready for use. *The **Caution** banner will be removed when generally available*.
@@ -14,27 +14,27 @@
 ```bash
 brew tap polyium/homebrew-taps
 
-brew install polyforge
+brew install template-go-cli
 ```
 
 ###### Upgrading
 
 ```bash
-brew update && brew upgrade polyforge
+brew update && brew upgrade template-go-cli
 ```
 
 ###### Reinstalling
 
 ```bash
 brew update
-brew uninstall --cask polyforge
-brew install polyforge
+brew uninstall --cask template-go-cli
+brew install template-go-cli
 ```
 
 ## Usage
 
 ```bash
-polyforge --help
+template-go-cli --help
 ```
 
 ## Contributions

@@ -8,7 +8,7 @@
 # - Default GitHub environment variables: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#default-environment-variables
 #
 
-name := polyforge
+name := template-go-cli
 ifdef CI_PROJECT_NAME
     override name = $(CI_PROJECT_NAME)
 endif

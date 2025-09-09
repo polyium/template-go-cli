@@ -1,7 +1,7 @@
 # Contributing Guide
 
 > [!NOTE]
-> **The following documentation is intended for project maintainers & developers, and those looking to contribute to the project**.
+> **The following documentation is intended for project maintainers & developers, or those looking to contribute to the project**.
 
 ## Commit Messages
 

@@ -1,4 +1,4 @@
-module polyforge
+module template-go-cli
 
 go 1.25
 
