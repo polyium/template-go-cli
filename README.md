@@ -4,7 +4,8 @@
 
 `go` excels in its standard-library, cross system compilation, and especially relating to dependencies, vendoring and binary sizes.
 
-The following project is a template for commandline applications. Additionally, the template options for Homebrew.
+The following project is a template for commandline applications. Additionally, the template includes
+options for Homebrew.
 
 <details>
 <summary>Template</summary>
