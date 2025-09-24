@@ -1,6 +1,7 @@
 <!-- {{ $.source.start }} -->
 
 - [ ] Rename to `go-cli-template`
+- [ ] Remove as public template (its rendered by polysphere)
 
 ## Overview
 
