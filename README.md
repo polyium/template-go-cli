@@ -1,5 +1,7 @@
 <!-- {{ $.source.start }} -->
 
+- [ ] Rename to `go-cli-template`
+
 ## Overview
 
 The following project is a template for commandline applications, and includes options for Homebrew.
